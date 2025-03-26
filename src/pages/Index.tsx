@@ -1,12 +1,48 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useEffect } from 'react';
+import Navigation from '../components/Navigation';
+import Hero from '../components/Hero';
+import LeGymSection from '../components/LeGymSection';
+import OnlineFitnessSection from '../components/OnlineFitnessSection';
+import TrainersSection from '../components/TrainersSection';
+import PricingSection from '../components/PricingSection';
+import TestimonialsSection from '../components/TestimonialsSection';
+import FooterSection from '../components/FooterSection';
 
 const Index = () => {
+  useEffect(() => {
+    const animateOnScroll = () => {
+      const elements = document.querySelectorAll('section');
+      
+      elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.2;
+        
+        if (elementPosition < screenPosition) {
+          element.classList.add('animate-slide-in');
+        }
+      });
+    };
+    
+    window.addEventListener('scroll', animateOnScroll);
+    // Initial check
+    animateOnScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', animateOnScroll);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
+    <div className="min-h-screen bg-white">
+      <Navigation />
+      <Hero />
+      <LeGymSection />
+      <OnlineFitnessSection />
+      <TrainersSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <FooterSection />
     </div>
   );
 };

@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    --primary: 0 72% 51%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -35,19 +36,12 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
@@ -97,5 +91,81 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.stat-number {
+  @apply text-3xl font-bold;
+}
+
+.stat-label {
+  @apply text-sm font-medium text-fitness-textGray;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-4;
+}
+
+.feature-item {
+  @apply flex items-start gap-4 mb-4;
+}
+
+.feature-icon {
+  @apply flex items-center justify-center w-8 h-8 rounded-full bg-fitness-red text-white flex-shrink-0;
+}
+
+.primary-button {
+  @apply bg-fitness-red text-white font-medium py-2 px-6 rounded hover:bg-opacity-90 transition-all duration-300;
+}
+
+.secondary-button {
+  @apply bg-fitness-dark text-white font-medium py-2 px-6 rounded hover:bg-opacity-90 transition-all duration-300;
+}
+
+.pricing-card {
+  @apply bg-white p-6 rounded-lg shadow-md border border-gray-200;
+}
+
+.pricing-title {
+  @apply text-xl font-bold mb-1;
+}
+
+.pricing-price {
+  @apply text-3xl font-bold flex items-center gap-1;
+}
+
+.pricing-period {
+  @apply text-sm font-normal text-fitness-textGray;
+}
+
+.pricing-feature {
+  @apply flex items-center gap-2 text-sm mb-2;
+}
+
+.trainer-card {
+  @apply overflow-hidden rounded-lg;
+}
+
+.testimonial-card {
+  @apply bg-white p-6 rounded-lg shadow-md;
+}
+
+.footer-link {
+  @apply text-sm text-gray-400 hover:text-white transition-colors;
+}
+
+.animated-element {
+  @apply opacity-0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
