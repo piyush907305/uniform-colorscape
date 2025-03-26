@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,7 +9,6 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -18,38 +17,40 @@ const TestimonialsSection = () => {
       name: "Alex, Engineering Student",
       rating: 5,
       image: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-      text: "The LeGym has completely transformed my university experience. The trainers are knowledgeable, and the facilities are top-notch!"
+      text: "The trainers are amazing, and the booking system is so easy to use!"
     },
     {
       id: 2,
       name: "Sarah, Business Student",
       rating: 5,
       image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1061&q=80",
-      text: "As a busy student, the flexible hours and online booking system make it so easy to fit workouts into my packed schedule. Highly recommend!"
+      text: "I love the flexibility of online classes. Absolutely incredible!"
     }
   ];
 
   return (
-    <section className="py-16 bg-fitness-gray">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h2 className="text-3xl font-bold uppercase">Hear From Our Students</h2>
-            <p className="text-fitness-textGray max-w-3xl mt-2">
-              Your feedback helps us improve! Here's what our members have to say about their fitness journey with Le*.
-            </p>
-          </div>
-          <Button variant="outline" className="rounded-md bg-gray-800 text-white border-none hover:bg-gray-700">
-            + Leave a Review
+        <div className="flex flex-col mb-8">
+          <span className="text-sm uppercase font-medium text-gray-500 mb-2">Reviews</span>
+          <h2 className="text-3xl font-bold uppercase text-gray-800">HEAR FROM OUR STUDENTS</h2>
+          <p className="text-fitness-textGray max-w-3xl mt-2">
+            YOUR FEEDBACK HELPS US IMPROVE! HERE'S WHAT OUR MEMBERS HAVE TO SAY ABOUT THEIR FITNESS JOURNEY WITH LE*.
+          </p>
+        </div>
+        
+        <div className="flex justify-end mb-8">
+          <Button className="bg-black hover:bg-gray-800 text-white rounded-none px-4 py-2 text-sm flex items-center gap-1">
+            <span>+</span> Leave a Review
           </Button>
         </div>
         
-        <div className="relative mt-12">          
+        <div className="relative mt-4">          
           <Carousel className="w-full">
             <CarouselContent>
               {testimonials.map(testimonial => (
                 <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/2">
-                  <div className="bg-white p-6 rounded-lg">
+                  <div className="bg-white p-6 rounded-lg border border-gray-100">
                     <div className="flex justify-between mb-4">
                       <div className="flex gap-3">
                         <img 
@@ -72,9 +73,9 @@ const TestimonialsSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex justify-center mt-4 gap-2">
-              <CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-full border border-gray-300" />
-              <CarouselNext className="static h-10 w-10 translate-y-0 rounded-full border border-gray-300" />
+            <div className="flex justify-center mt-6 gap-2">
+              <CarouselPrevious className="static h-8 w-8 translate-y-0 rounded-full border border-gray-300 bg-white hover:bg-gray-100" />
+              <CarouselNext className="static h-8 w-8 translate-y-0 rounded-full border border-gray-300 bg-white hover:bg-gray-100" />
             </div>
           </Carousel>
           
