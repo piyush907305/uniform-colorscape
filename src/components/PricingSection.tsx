@@ -64,19 +64,19 @@ const PricingSection = () => {
             
             <CardContent className="pt-6 space-y-3">
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Access to gym facilities during off-peak hours</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Participation in 2 group fitness classes per week</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Basic equipment orientation through the app</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Access to fitness blogs and tips for beginners</span>
               </div>
             </CardContent>
@@ -92,8 +92,8 @@ const PricingSection = () => {
           </Card>
           
           {/* Advanced Plan */}
-          <Card className="border-2 border-fitness-red rounded-xl overflow-hidden relative">
-            <div className="absolute top-0 right-0 bg-fitness-red text-white text-xs py-1 px-3 rounded-bl-lg">
+          <Card className="border-2 border-black rounded-xl overflow-hidden relative">
+            <div className="absolute top-0 right-0 bg-black text-white text-xs py-1 px-3 rounded-bl-lg">
               Most Popular Plan
             </div>
             <CardHeader className="pb-0">
@@ -107,30 +107,30 @@ const PricingSection = () => {
             
             <CardContent className="pt-6 space-y-3">
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Full access to gym facilities during all operating hours</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Unlimited group fitness classes</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Personalized training and nutrition by trainers</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Access to online fitness sessions and live virtual coaching</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Real-time tracking and visualization options</span>
               </div>
             </CardContent>
             
             <CardFooter className="pt-4">
               <Button 
-                className="w-full bg-fitness-red text-white hover:bg-red-600"
+                className="w-full bg-black text-white hover:bg-black/90"
                 onClick={() => handleChoosePlan("Advanced Training Plan", billingCycle === "monthly" ? "60" : "540")}
               >
                 Choose Plan
@@ -151,23 +151,23 @@ const PricingSection = () => {
             
             <CardContent className="pt-6 space-y-3">
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Full access to gym facilities during all operating hours</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Unlimited group fitness classes</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Priority booking for gym slots and classes</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">Access to VIP specialty fitness classes</span>
               </div>
               <div className="flex items-start gap-2">
-                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <CircleCheck className="h-5 w-5 text-black flex-shrink-0 mt-0.5" />
                 <span className="text-sm">One-on-one exclusive fitness sessions</span>
               </div>
             </CardContent>

@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 0 72% 51%;
+    --primary: 0 0% 0%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -111,11 +111,11 @@
 }
 
 .feature-icon {
-  @apply flex items-center justify-center w-8 h-8 rounded-full bg-fitness-red text-white flex-shrink-0;
+  @apply flex items-center justify-center w-8 h-8 rounded-full bg-black text-white flex-shrink-0;
 }
 
 .primary-button {
-  @apply bg-fitness-red text-white font-medium py-2 px-6 rounded hover:bg-opacity-90 transition-all duration-300;
+  @apply bg-black text-white font-medium py-2 px-6 rounded hover:bg-opacity-90 transition-all duration-300;
 }
 
 .secondary-button {

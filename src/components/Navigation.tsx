@@ -17,11 +17,11 @@ const Navigation = () => {
       </div>
       
       <div className="hidden md:flex items-center space-x-8">
-        <Link to="/" className="text-sm font-medium text-white hover:text-fitness-red transition-colors">Home</Link>
-        <Link to="/contact" className="text-sm font-medium text-white hover:text-fitness-red transition-colors">Contact</Link>
-        <Link to="#" className="text-sm font-medium text-white hover:text-fitness-red transition-colors">FAQ</Link>
+        <Link to="/" className="text-sm font-medium text-white hover:text-black transition-colors">Home</Link>
+        <Link to="/contact" className="text-sm font-medium text-white hover:text-black transition-colors">Contact</Link>
+        <Link to="#" className="text-sm font-medium text-white hover:text-black transition-colors">FAQ</Link>
         <Link to="/login">
-          <Button variant="outline" className="text-sm font-medium bg-white text-fitness-dark border-white hover:bg-white hover:text-fitness-red transition-colors">
+          <Button variant="outline" className="text-sm font-medium bg-white text-fitness-dark border-white hover:bg-white hover:text-black transition-colors">
             Login
           </Button>
         </Link>

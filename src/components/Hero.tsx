@@ -23,7 +23,7 @@ const Hero = () => {
               Here!
             </h1>
             
-            <Button className="bg-white text-fitness-dark hover:bg-white hover:text-fitness-red transition-colors mt-4">Sign Up</Button>
+            <Button className="bg-white text-fitness-dark hover:bg-white hover:text-black transition-colors mt-4">Sign Up</Button>
             
             <div className="mt-16 grid grid-cols-4 gap-4">
               <div className="text-center">
