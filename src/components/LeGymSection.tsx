@@ -73,9 +73,12 @@ const LeGymSection = () => {
               </div>
             </div>
             
-            <div className="mt-8 flex justify-start">
+            <div className="mt-8 flex gap-4 justify-start">
               <Link to="/fitness-tracker">
                 <Button className="bg-fitness-red text-white hover:bg-fitness-red/90 transition-colors">Get Started</Button>
+              </Link>
+              <Link to="/fitness-classes">
+                <Button className="bg-black text-white hover:bg-black/90 transition-colors">Book Fitness Class</Button>
               </Link>
             </div>
           </div>

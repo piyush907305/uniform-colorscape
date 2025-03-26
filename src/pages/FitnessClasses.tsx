@@ -11,25 +11,25 @@ const fitnessClasses = [
     id: 1,
     name: 'Yoga',
     description: 'Improve flexibility, balance and mental focus with our yoga classes.',
-    image: '/lovable-uploads/21c17f95-59b4-49ba-8798-2fec28aacf82.png',
+    image: '/lovable-uploads/9d5412fc-e950-484d-ab9b-772bf193b051.png',
   },
   {
     id: 2,
     name: 'Strength',
     description: 'Build muscle, increase strength and boost your metabolism.',
-    image: '/lovable-uploads/21c17f95-59b4-49ba-8798-2fec28aacf82.png',
+    image: '/lovable-uploads/9d5412fc-e950-484d-ab9b-772bf193b051.png',
   },
   {
     id: 3,
     name: 'Zumba',
     description: 'Dance-based cardio workout that's fun, effective, and easy to follow.',
-    image: '/lovable-uploads/21c17f95-59b4-49ba-8798-2fec28aacf82.png',
+    image: '/lovable-uploads/9d5412fc-e950-484d-ab9b-772bf193b051.png',
   },
   {
     id: 4,
     name: 'Cardio',
     description: 'Burn calories and improve heart health with high-energy workouts.',
-    image: '/lovable-uploads/21c17f95-59b4-49ba-8798-2fec28aacf82.png',
+    image: '/lovable-uploads/9d5412fc-e950-484d-ab9b-772bf193b051.png',
   }
 ];
 
