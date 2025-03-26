@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, Calendar, X, BarChart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const LeGymSection = () => {
   return (
@@ -73,7 +74,9 @@ const LeGymSection = () => {
             </div>
             
             <div className="mt-8 flex justify-start">
-              <Button className="bg-fitness-red text-white hover:bg-fitness-red/90 transition-colors">Get Started</Button>
+              <Link to="/fitness-tracker">
+                <Button className="bg-fitness-red text-white hover:bg-fitness-red/90 transition-colors">Get Started</Button>
+              </Link>
             </div>
           </div>
           
