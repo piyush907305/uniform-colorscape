@@ -17,7 +17,7 @@ const LeGymSection = () => {
             <div className="grid grid-cols-2 gap-6">
               <div className="flex flex-col gap-2">
                 <div className="flex gap-3 items-start">
-                  <div className="feature-icon bg-gray-800 mb-1 mt-1">
+                  <div className="feature-icon bg-fitness-red mb-1 mt-1">
                     <Check className="w-4 h-4" />
                   </div>
                   <div>
@@ -31,7 +31,7 @@ const LeGymSection = () => {
               
               <div className="flex flex-col gap-2">
                 <div className="flex gap-3 items-start">
-                  <div className="feature-icon bg-gray-800 mb-1 mt-1">
+                  <div className="feature-icon bg-fitness-red mb-1 mt-1">
                     <X className="w-4 h-4" />
                   </div>
                   <div>
@@ -45,7 +45,7 @@ const LeGymSection = () => {
               
               <div className="flex flex-col gap-2">
                 <div className="flex gap-3 items-start">
-                  <div className="feature-icon bg-gray-800 mb-1 mt-1">
+                  <div className="feature-icon bg-fitness-red mb-1 mt-1">
                     <Calendar className="w-4 h-4" />
                   </div>
                   <div>
@@ -59,7 +59,7 @@ const LeGymSection = () => {
               
               <div className="flex flex-col gap-2">
                 <div className="flex gap-3 items-start">
-                  <div className="feature-icon bg-gray-800 mb-1 mt-1">
+                  <div className="feature-icon bg-fitness-red mb-1 mt-1">
                     <BarChart className="w-4 h-4" />
                   </div>
                   <div>
@@ -73,7 +73,7 @@ const LeGymSection = () => {
             </div>
             
             <div className="mt-8 flex justify-start">
-              <Button className="bg-gray-800 text-white hover:bg-gray-700 transition-colors">Get Started</Button>
+              <Button className="bg-fitness-red text-white hover:bg-fitness-red/90 transition-colors">Get Started</Button>
             </div>
           </div>
           
