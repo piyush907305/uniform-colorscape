@@ -3,8 +3,9 @@ import React, { useState } from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X } from "lucide-react";
+import { X, ArrowRight } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
+import { Label } from "@/components/ui/label";
 
 interface MembershipFlowProps {
   isOpen: boolean;
@@ -123,94 +124,128 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
       <>
         <h2 className="text-xl font-bold mb-4">Basic Details</h2>
         <div className="space-y-4">
-          <Input 
-            placeholder="Enter name" 
-            name="name" 
-            value={formData.name} 
-            onChange={handleInputChange}
-            className="bg-gray-100"
-          />
-          <Input 
-            placeholder="Enter phone no" 
-            name="phone" 
-            value={formData.phone} 
-            onChange={handleInputChange}
-            className="bg-gray-100"
-          />
+          <div className="space-y-2">
+            <Label htmlFor="name">Full Name</Label>
+            <Input 
+              id="name"
+              placeholder="Enter name" 
+              name="name" 
+              value={formData.name} 
+              onChange={handleInputChange}
+              className="bg-gray-100"
+            />
+          </div>
           
-          <div className="file-upload-container">
-            <div className="relative border border-gray-200 rounded-md p-2 flex items-center justify-between bg-gray-100">
-              <span className="text-gray-500 text-sm">
-                {formData.file ? formData.file.name : "Drop your file here or browse"}
-              </span>
-              <label htmlFor="file-upload" className="cursor-pointer bg-gray-200 rounded-full p-1">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-                <input
-                  id="file-upload"
-                  type="file"
-                  className="hidden"
-                  onChange={handleFileChange}
-                />
-              </label>
+          <div className="space-y-2">
+            <Label htmlFor="phone">Phone Number</Label>
+            <Input 
+              id="phone"
+              placeholder="Enter phone no" 
+              name="phone" 
+              value={formData.phone} 
+              onChange={handleInputChange}
+              className="bg-gray-100"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="email">Email Address</Label>
+            <Input 
+              id="email"
+              placeholder="Enter email" 
+              name="email" 
+              type="email" 
+              value={formData.email} 
+              onChange={handleInputChange}
+              className="bg-gray-100"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="file-upload">Profile Photo</Label>
+            <div className="file-upload-container">
+              <div className="relative border border-gray-200 rounded-md p-2 flex items-center justify-between bg-gray-100">
+                <span className="text-gray-500 text-sm">
+                  {formData.file ? formData.file.name : "Drop your file here or browse"}
+                </span>
+                <label htmlFor="file-upload" className="cursor-pointer bg-gray-200 rounded-full p-1">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                  <input
+                    id="file-upload"
+                    type="file"
+                    className="hidden"
+                    onChange={handleFileChange}
+                  />
+                </label>
+              </div>
             </div>
           </div>
           
-          <Input 
-            placeholder="Enter email" 
-            name="email" 
-            type="email" 
-            value={formData.email} 
-            onChange={handleInputChange}
-            className="bg-gray-100"
-          />
-          
           <div className="grid grid-cols-3 gap-2">
-            <select 
-              name="gender" 
-              value={formData.gender} 
-              onChange={(e) => setFormData({...formData, gender: e.target.value})}
-              className="rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
-            >
-              <option value="" disabled>Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
+            <div className="space-y-2">
+              <Label htmlFor="gender">Gender</Label>
+              <select 
+                id="gender"
+                name="gender" 
+                value={formData.gender} 
+                onChange={(e) => setFormData({...formData, gender: e.target.value})}
+                className="w-full rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
+              >
+                <option value="" disabled>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
             
-            <Input 
-              placeholder="Enter age" 
-              name="age" 
-              value={formData.age} 
-              onChange={handleInputChange}
-              className="bg-gray-100"
-            />
+            <div className="space-y-2">
+              <Label htmlFor="age">Age</Label>
+              <Input 
+                id="age"
+                placeholder="Enter age" 
+                name="age" 
+                value={formData.age} 
+                onChange={handleInputChange}
+                className="bg-gray-100"
+              />
+            </div>
             
+            <div className="space-y-2">
+              <Label htmlFor="height">Height</Label>
+              <Input 
+                id="height"
+                placeholder="Enter height" 
+                name="height" 
+                value={formData.height} 
+                onChange={handleInputChange}
+                className="bg-gray-100"
+              />
+            </div>
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="weight">Weight</Label>
             <Input 
-              placeholder="Enter height" 
-              name="height" 
-              value={formData.height} 
-              onChange={handleInputChange}
-              className="bg-gray-100"
-            />
-            
-            <Input 
+              id="weight"
               placeholder="Enter weight"
               name="weight" 
               value={formData.weight} 
               onChange={handleInputChange}
-              className="bg-gray-100 col-span-3"
+              className="bg-gray-100"
             />
           </div>
         </div>
 
-        <Button 
-          onClick={handleNext}
-          className="w-full bg-black text-white mt-4"
-        >
-          Next
-        </Button>
+        <div className="mt-6 flex justify-end">
+          <Button 
+            onClick={handleNext}
+            className="bg-black text-white px-6"
+          >
+            Next <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
       </>
     );
   };
@@ -220,62 +255,82 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
       <>
         <h2 className="text-xl font-bold mb-4">Membership Details</h2>
         <div className="space-y-4">
-          <select 
-            name="plan" 
-            value={formData.plan} 
-            onChange={(e) => setFormData({...formData, plan: e.target.value})}
-            className="w-full rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
-          >
-            <option value="" disabled>Select Plan</option>
-            <option value="basic">Basic Student Plan</option>
-            <option value="advanced">Advanced Training Plan</option>
-            <option value="all-inclusive">All-Inclusive Plan</option>
-          </select>
-          
-          <div className="grid grid-cols-2 gap-2">
+          <div className="space-y-2">
+            <Label htmlFor="plan">Membership Plan</Label>
             <select 
-              name="duration" 
-              value={formData.duration} 
-              onChange={(e) => setFormData({...formData, duration: e.target.value})}
-              className="rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
+              id="plan"
+              name="plan" 
+              value={formData.plan} 
+              onChange={(e) => setFormData({...formData, plan: e.target.value})}
+              className="w-full rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
             >
-              <option value="" disabled>Plan Duration</option>
-              <option value="1">1 Month</option>
-              <option value="3">3 Months</option>
-              <option value="6">6 Months</option>
-              <option value="12">12 Months</option>
+              <option value="" disabled>Select Plan</option>
+              <option value="basic">Basic Student Plan</option>
+              <option value="advanced">Advanced Training Plan</option>
+              <option value="all-inclusive">All-Inclusive Plan</option>
             </select>
-            
-            <Input 
-              placeholder="Month" 
-              name="month" 
-              className="bg-gray-100"
-              readOnly
-              value={`${formData.duration || '0'} Month${formData.duration === '1' ? '' : 's'}`}
-            />
           </div>
           
           <div className="grid grid-cols-2 gap-2">
-            <Input 
-              placeholder="Start Date" 
-              name="startDate" 
-              type="date"
-              value={formData.startDate} 
-              onChange={handleInputChange}
-              className="bg-gray-100"
-            />
+            <div className="space-y-2">
+              <Label htmlFor="duration">Plan Duration</Label>
+              <select 
+                id="duration"
+                name="duration" 
+                value={formData.duration} 
+                onChange={(e) => setFormData({...formData, duration: e.target.value})}
+                className="w-full rounded-md border border-input bg-gray-100 px-3 py-2 text-sm"
+              >
+                <option value="" disabled>Select</option>
+                <option value="1">1 Month</option>
+                <option value="3">3 Months</option>
+                <option value="6">6 Months</option>
+                <option value="12">12 Months</option>
+              </select>
+            </div>
             
-            <Input 
-              placeholder="End Date" 
-              name="endDate" 
-              type="date"
-              value={formData.endDate} 
-              onChange={handleInputChange}
-              className="bg-gray-100"
-            />
+            <div className="space-y-2">
+              <Label htmlFor="month">Period</Label>
+              <Input 
+                id="month"
+                placeholder="Month" 
+                name="month" 
+                className="bg-gray-100"
+                readOnly
+                value={`${formData.duration || '0'} Month${formData.duration === '1' ? '' : 's'}`}
+              />
+            </div>
           </div>
           
-          <div>
+          <div className="grid grid-cols-2 gap-2">
+            <div className="space-y-2">
+              <Label htmlFor="startDate">Start Date</Label>
+              <Input 
+                id="startDate"
+                placeholder="Start Date" 
+                name="startDate" 
+                type="date"
+                value={formData.startDate} 
+                onChange={handleInputChange}
+                className="bg-gray-100"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <Label htmlFor="endDate">End Date</Label>
+              <Input 
+                id="endDate"
+                placeholder="End Date" 
+                name="endDate" 
+                type="date"
+                value={formData.endDate} 
+                onChange={handleInputChange}
+                className="bg-gray-100"
+              />
+            </div>
+          </div>
+          
+          <div className="space-y-2">
             <div className="text-sm font-medium mb-2">Select your fitness goals</div>
             <div className="grid grid-cols-3 gap-2">
               {['Weight Loss', 'Muscle Gain', 'Flexibility', 'Endurance', 'Strength', 'Better Health', 'Toning', 'Rehabilitation', 'Sport Training'].map((goal) => (
@@ -293,12 +348,14 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
           </div>
         </div>
 
-        <Button 
-          onClick={handleNext}
-          className="w-full bg-black text-white mt-4"
-        >
-          Next
-        </Button>
+        <div className="mt-6 flex justify-end">
+          <Button 
+            onClick={handleNext}
+            className="bg-black text-white px-6"
+          >
+            Next <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
       </>
     );
   };
@@ -306,6 +363,9 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
   const renderStep3 = () => {
     return (
       <div className="flex flex-col items-center justify-center py-10">
+        <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-2xl mb-6">
+          ✓
+        </div>
         <h2 className="text-3xl font-bold mb-4">Thank you !!</h2>
         <p className="text-gray-500 text-center mb-6">
           Your membership has been successfully activated. Get ready to embark on your fitness journey!
