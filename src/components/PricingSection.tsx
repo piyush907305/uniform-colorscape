@@ -1,137 +1,131 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Check } from "lucide-react";
+import { Check, CircleCheck } from "lucide-react";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 const PricingSection = () => {
   return (
-    <section className="py-16 bg-white border-t border-gray-200">
+    <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
-        <h2 className="section-title text-center uppercase">Exclusive Membership Plans</h2>
+        <h2 className="text-center text-3xl font-bold mb-12">EXCLUSIVE MEMBERSHIP PLANS</h2>
         
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
+        <div className="grid md:grid-cols-3 gap-6">
           {/* Basic Plan */}
-          <div className="pricing-card">
-            <div className="mb-6">
-              <p className="pricing-title">Basic Student Plan</p>
-              <div className="pricing-price">
-                <span>$45</span>
-                <span className="pricing-period">/month</span>
+          <Card className="border border-gray-200 rounded-xl overflow-hidden">
+            <CardHeader className="pb-0">
+              <p className="text-sm font-medium mb-1">Basic Student Plan</p>
+              <div className="flex items-baseline">
+                <span className="text-3xl font-bold">$45</span>
+                <span className="text-sm text-gray-500 ml-1">/ Month</span>
               </div>
-              <p className="text-xs text-fitness-textGray mt-1">Access to standard gym areas and basic equipment</p>
-            </div>
+              <p className="text-xs text-gray-500 mt-1">Perfect for students looking to gain access on a budget!</p>
+            </CardHeader>
             
-            <div className="space-y-3 mb-8">
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Access to gym facilities from 9 AM until 5 PM</span>
+            <CardContent className="pt-6 space-y-3">
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Access to gym facilities during off-peak hours</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Use of cardio machines</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Participation in 2 group fitness classes per week</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Access to group fitness classes</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Basic equipment orientation through the app</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Free fitness assessment</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Access to fitness blogs and tips for beginners</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Locker access during sessions</span>
-              </div>
-            </div>
+            </CardContent>
             
-            <Button className="secondary-button w-full">Choose Plan</Button>
-          </div>
+            <CardFooter className="pt-4">
+              <Button className="w-full bg-white border border-black text-black hover:bg-gray-100">Choose Plan</Button>
+            </CardFooter>
+          </Card>
           
-          {/* Standard Plan */}
-          <div className="pricing-card relative border-fitness-red">
+          {/* Advanced Plan */}
+          <Card className="border-2 border-fitness-red rounded-xl overflow-hidden relative">
             <div className="absolute top-0 right-0 bg-fitness-red text-white text-xs py-1 px-3 rounded-bl-lg">
-              Most Popular
+              Most Popular Plan
             </div>
+            <CardHeader className="pb-0">
+              <p className="text-sm font-medium mb-1">Advanced Training Plan</p>
+              <div className="flex items-baseline">
+                <span className="text-3xl font-bold">$60</span>
+                <span className="text-sm text-gray-500 ml-1">/ Month</span>
+              </div>
+              <p className="text-xs text-gray-500 mt-1">Ideal for those who want flexibility and personalized guidance.</p>
+            </CardHeader>
             
-            <div className="mb-6">
-              <p className="pricing-title">Standard Training Plan</p>
-              <div className="pricing-price">
-                <span>$60</span>
-                <span className="pricing-period">/month</span>
+            <CardContent className="pt-6 space-y-3">
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Full access to gym facilities during all operating hours</span>
               </div>
-              <p className="text-xs text-fitness-textGray mt-1">Get the benefits of both flexibility and dedicated support</p>
-            </div>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Unlimited group fitness classes</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Personalized training and nutrition by trainers</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Access to online fitness sessions and live virtual coaching</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Real-time tracking and visualization options</span>
+              </div>
+            </CardContent>
             
-            <div className="space-y-3 mb-8">
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>All Basic plan features</span>
-              </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Full access to gym facilities during all operating hours</span>
-              </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Two personal training sessions per month</span>
-              </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Advanced fitness assessments monthly</span>
-              </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Nutrition consultation once per semester</span>
-              </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Free towel service</span>
-              </div>
-            </div>
-            
-            <Button className="primary-button w-full">Choose Plan</Button>
-          </div>
+            <CardFooter className="pt-4">
+              <Button className="w-full bg-fitness-red text-white hover:bg-red-600">Choose Plan</Button>
+            </CardFooter>
+          </Card>
           
-          {/* Premium Plan */}
-          <div className="pricing-card">
-            <div className="mb-6">
-              <p className="pricing-title">All Inclusive Plan</p>
-              <div className="pricing-price">
-                <span>$70</span>
-                <span className="pricing-period">/month</span>
+          {/* All-Inclusive Plan */}
+          <Card className="border border-gray-200 rounded-xl overflow-hidden">
+            <CardHeader className="pb-0">
+              <p className="text-sm font-medium mb-1">All-Inclusive Plan</p>
+              <div className="flex items-baseline">
+                <span className="text-3xl font-bold">$70</span>
+                <span className="text-sm text-gray-500 ml-1">/ Month</span>
               </div>
-              <p className="text-xs text-fitness-textGray mt-1">Premium access with more extensive support</p>
-            </div>
+              <p className="text-xs text-gray-500 mt-1">Get everything you need for a complete fitness experience.</p>
+            </CardHeader>
             
-            <div className="space-y-3 mb-8">
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>All Standard plan features</span>
+            <CardContent className="pt-6 space-y-3">
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Full access to gym facilities during all operating hours</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Four personal training sessions per month</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Unlimited group fitness classes</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Unlimited group fitness classes</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Priority booking for gym slots and classes</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Priority booking for group classes</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">Access to VIP specialty fitness classes</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Monthly nutrition and wellness review</span>
+              <div className="flex items-start gap-2">
+                <CircleCheck className="h-5 w-5 text-fitness-red flex-shrink-0 mt-0.5" />
+                <span className="text-sm">One-on-one exclusive fitness sessions</span>
               </div>
-              <div className="pricing-feature">
-                <Check className="w-4 h-4 text-fitness-red" />
-                <span>Access to premium facilities</span>
-              </div>
-            </div>
+            </CardContent>
             
-            <Button className="secondary-button w-full">Choose Plan</Button>
-          </div>
+            <CardFooter className="pt-4">
+              <Button className="w-full bg-white border border-black text-black hover:bg-gray-100">Choose Plan</Button>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </section>
