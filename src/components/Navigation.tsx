@@ -8,7 +8,7 @@ const Navigation = () => {
       <div className="flex items-center">
         <a href="/" className="flex items-center">
           <img 
-            src="/lovable-uploads/7b4eb1b0-1dee-487a-a181-f985ce7f5654.png" 
+            src="/lovable-uploads/798813f4-cfef-493e-bcfd-d629448f5364.png" 
             alt="Concordia Logo" 
             className="h-12"
           />

@@ -6,70 +6,64 @@ import { Check, Calendar, X, BarChart } from "lucide-react";
 const LeGymSection = () => {
   return (
     <section className="py-16 bg-white">
-      <div className="container mx-auto px-6">
-        <h2 className="section-title text-center mb-6">LeGym: Fitness Companion for Campus Life</h2>
+      <div className="container mx-auto px-6 max-w-6xl">
+        <h2 className="section-title text-center text-3xl font-bold mb-4">LeGym: Fitness Companion for Campus Life</h2>
         <p className="text-center text-fitness-textGray max-w-3xl mx-auto mb-12">
-          Discover a gym experience tailored to Concordia students. Book your sessions, track your progress, and optimize your fitness goals effortlessly!
+          Discover a gym experience tailored to Concordia students. Book your sessions, track your progress, and achieve your fitness goals effortlessly!
         </p>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <div className="feature-item">
-              <div className="feature-icon">
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="feature-item flex flex-col items-start gap-3 p-4">
+              <div className="feature-icon bg-gray-800 mb-1">
                 <Check className="w-4 h-4" />
               </div>
-              <div>
-                <h3 className="font-semibold mb-1">Book Fitness Class</h3>
-                <p className="text-sm text-fitness-textGray">
-                  Browse open gym sessions and classes with trainers to optimize your campus fitness journey.
-                </p>
-              </div>
+              <h3 className="font-semibold text-base mb-1">Book Fitness Class</h3>
+              <p className="text-sm text-fitness-textGray">
+                Secure your spot instantly and enjoy your favorite fitness classes hassle-free.
+              </p>
             </div>
             
-            <div className="feature-item">
-              <div className="feature-icon">
+            <div className="feature-item flex flex-col items-start gap-3 p-4">
+              <div className="feature-icon bg-gray-800 mb-1">
                 <X className="w-4 h-4" />
               </div>
-              <div>
-                <h3 className="font-semibold mb-1">Cancel Booking</h3>
-                <p className="text-sm text-fitness-textGray">
-                  Can't make your session? Cancel or reschedule quickly to give others the opportunity.
-                </p>
-              </div>
+              <h3 className="font-semibold text-base mb-1">Cancel Booking</h3>
+              <p className="text-sm text-fitness-textGray">
+                Effortlessly adjust or cancel your bookings to match your changing schedule.
+              </p>
             </div>
             
-            <div className="feature-item">
-              <div className="feature-icon">
+            <div className="feature-item flex flex-col items-start gap-3 p-4">
+              <div className="feature-icon bg-gray-800 mb-1">
                 <Calendar className="w-4 h-4" />
               </div>
-              <div>
-                <h3 className="font-semibold mb-1">View Training Schedule</h3>
-                <p className="text-sm text-fitness-textGray">
-                  Access campus gym calendars with availability and instructors to sync your workouts with class.
-                </p>
-              </div>
+              <h3 className="font-semibold text-base mb-1">View Training Schedule</h3>
+              <p className="text-sm text-fitness-textGray">
+                Quickly access class schedules and calendar details to plan your workouts with ease.
+              </p>
             </div>
             
-            <div className="feature-item">
-              <div className="feature-icon">
+            <div className="feature-item flex flex-col items-start gap-3 p-4">
+              <div className="feature-icon bg-gray-800 mb-1">
                 <BarChart className="w-4 h-4" />
               </div>
-              <div>
-                <h3 className="font-semibold mb-1">Track your progress</h3>
-                <p className="text-sm text-fitness-textGray">
-                  View insights into your training patterns, weekly progress metrics, and personal bests.
-                </p>
-              </div>
+              <h3 className="font-semibold text-base mb-1">Track your progress</h3>
+              <p className="text-sm text-fitness-textGray">
+                Stay motivated by tracking your fitness results with tailored insights and progress updates.
+              </p>
             </div>
             
-            <Button className="primary-button w-full mt-4">Get Started</Button>
+            <div className="col-span-2 mt-4 flex justify-center">
+              <Button className="bg-gray-800 text-white hover:bg-gray-700 transition-colors">Get Started</Button>
+            </div>
           </div>
           
           <div className="relative">
             <img 
-              src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+              src="/lovable-uploads/798813f4-cfef-493e-bcfd-d629448f5364.png" 
               alt="Students exercising in campus gym" 
-              className="rounded-lg shadow-lg w-full h-96 object-cover"
+              className="rounded-lg shadow-lg w-full h-auto object-cover"
             />
           </div>
         </div>
