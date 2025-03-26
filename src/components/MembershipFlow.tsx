@@ -204,6 +204,13 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
             />
           </div>
         </div>
+
+        <Button 
+          onClick={handleNext}
+          className="w-full bg-black text-white mt-4"
+        >
+          Next
+        </Button>
       </>
     );
   };
@@ -281,6 +288,13 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
             ))}
           </div>
         </div>
+
+        <Button 
+          onClick={handleNext}
+          className="w-full bg-black text-white mt-4"
+        >
+          Next
+        </Button>
       </>
     );
   };
@@ -289,6 +303,12 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
     return (
       <div className="flex flex-col items-center justify-center py-10">
         <h2 className="text-3xl font-bold mb-4">Thank you !!</h2>
+        <Button 
+          onClick={() => setStep(4)}
+          className="w-full bg-black text-white mt-4"
+        >
+          Back To Home
+        </Button>
       </div>
     );
   };
@@ -361,15 +381,6 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
         {step === 2 && renderStep2()}
         {step === 3 && renderStep3()}
         {step === 4 && renderFeedback()}
-        
-        {step !== 4 && (
-          <Button 
-            onClick={step === 3 ? () => setStep(4) : handleNext}
-            className="w-full bg-black text-white mt-4"
-          >
-            {step === 3 ? "Back To Home" : "Next"}
-          </Button>
-        )}
       </DialogContent>
     </Dialog>
   );
