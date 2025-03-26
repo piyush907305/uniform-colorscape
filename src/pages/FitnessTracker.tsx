@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -160,13 +159,15 @@ const FitnessTracker = () => {
                 </div>
                 <div className="h-48">
                   <ResponsiveContainer width="100%" height="100%">
-                    <BarChart data={activityData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
-                      <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                      <XAxis dataKey="name" axisLine={false} tickLine={false} />
-                      <YAxis hide={true} />
-                      <Bar dataKey="value" fill="#1f2937" radius={[4, 4, 0, 0]} />
-                      <ChartTooltip content={<ChartTooltipContent />} />
-                    </BarChart>
+                    <ChartContainer>
+                      <BarChart data={activityData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
+                        <CartesianGrid vertical={false} strokeDasharray="3 3" />
+                        <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                        <YAxis hide={true} />
+                        <Bar dataKey="value" fill="#1f2937" radius={[4, 4, 0, 0]} />
+                        <ChartTooltip content={<ChartTooltipContent />} />
+                      </BarChart>
+                    </ChartContainer>
                   </ResponsiveContainer>
                 </div>
               </div>
