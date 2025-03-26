@@ -22,7 +22,7 @@ const fitnessClasses = [
   {
     id: 3,
     name: 'Zumba',
-    description: 'Dance-based cardio workout that's fun, effective, and easy to follow.',
+    description: 'Dance-based cardio workout that\'s fun, effective, and easy to follow.',
     image: '/lovable-uploads/9d5412fc-e950-484d-ab9b-772bf193b051.png',
   },
   {
