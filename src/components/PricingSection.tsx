@@ -1,13 +1,43 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, CircleCheck } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const PricingSection = () => {
+  const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-6">
+        <div className="flex justify-between items-center mb-8">
+          <h3 className="text-lg font-medium">Pricing Plan</h3>
+          <div className="bg-gray-100 rounded-full p-1">
+            <ToggleGroup 
+              type="single" 
+              value={billingCycle}
+              onValueChange={(value) => {
+                if (value) setBillingCycle(value as "monthly" | "yearly");
+              }}
+              className="rounded-full"
+            >
+              <ToggleGroupItem 
+                value="monthly" 
+                className={`text-xs rounded-full px-4 py-1 ${billingCycle === "monthly" ? "bg-white text-black shadow-sm" : "text-gray-500"}`}
+              >
+                Monthly
+              </ToggleGroupItem>
+              <ToggleGroupItem 
+                value="yearly" 
+                className={`text-xs rounded-full px-4 py-1 ${billingCycle === "yearly" ? "bg-white text-black shadow-sm" : "text-gray-500"}`}
+              >
+                Yearly
+              </ToggleGroupItem>
+            </ToggleGroup>
+          </div>
+        </div>
+        
         <h2 className="text-center text-3xl font-bold mb-12">EXCLUSIVE MEMBERSHIP PLANS</h2>
         
         <div className="grid md:grid-cols-3 gap-6">
@@ -16,8 +46,8 @@ const PricingSection = () => {
             <CardHeader className="pb-0">
               <p className="text-sm font-medium mb-1">Basic Student Plan</p>
               <div className="flex items-baseline">
-                <span className="text-3xl font-bold">$45</span>
-                <span className="text-sm text-gray-500 ml-1">/ Month</span>
+                <span className="text-3xl font-bold">${billingCycle === "monthly" ? "45" : "405"}</span>
+                <span className="text-sm text-gray-500 ml-1">/ {billingCycle === "monthly" ? "Month" : "Year"}</span>
               </div>
               <p className="text-xs text-gray-500 mt-1">Perfect for students looking to gain access on a budget!</p>
             </CardHeader>
@@ -54,8 +84,8 @@ const PricingSection = () => {
             <CardHeader className="pb-0">
               <p className="text-sm font-medium mb-1">Advanced Training Plan</p>
               <div className="flex items-baseline">
-                <span className="text-3xl font-bold">$60</span>
-                <span className="text-sm text-gray-500 ml-1">/ Month</span>
+                <span className="text-3xl font-bold">${billingCycle === "monthly" ? "60" : "540"}</span>
+                <span className="text-sm text-gray-500 ml-1">/ {billingCycle === "monthly" ? "Month" : "Year"}</span>
               </div>
               <p className="text-xs text-gray-500 mt-1">Ideal for those who want flexibility and personalized guidance.</p>
             </CardHeader>
@@ -93,8 +123,8 @@ const PricingSection = () => {
             <CardHeader className="pb-0">
               <p className="text-sm font-medium mb-1">All-Inclusive Plan</p>
               <div className="flex items-baseline">
-                <span className="text-3xl font-bold">$70</span>
-                <span className="text-sm text-gray-500 ml-1">/ Month</span>
+                <span className="text-3xl font-bold">${billingCycle === "monthly" ? "70" : "630"}</span>
+                <span className="text-sm text-gray-500 ml-1">/ {billingCycle === "monthly" ? "Month" : "Year"}</span>
               </div>
               <p className="text-xs text-gray-500 mt-1">Get everything you need for a complete fitness experience.</p>
             </CardHeader>
