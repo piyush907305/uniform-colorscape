@@ -44,10 +44,10 @@ const Index = () => {
       <TestimonialsSection />
       
       {/* Call Us Now Section */}
-      <section className="bg-black text-white py-12 relative">
+      <section className="bg-black text-white py-16 relative">
         <div className="container mx-auto px-6 text-center">
-          <h2 className="text-2xl font-bold mb-4">Call Us Now</h2>
-          <p className="text-3xl font-bold">+1 4385350876</p>
+          <h2 className="text-xl font-semibold mb-3">Call Us Now</h2>
+          <p className="text-2xl font-bold">+1 4385350876</p>
         </div>
       </section>
       
