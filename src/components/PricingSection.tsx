@@ -4,9 +4,19 @@ import { Button } from "@/components/ui/button";
 import { Check, CircleCheck } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import MembershipFlow from './MembershipFlow';
 
 const PricingSection = () => {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const [membershipFlowOpen, setMembershipFlowOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState("");
+  const [selectedPrice, setSelectedPrice] = useState("");
+
+  const handleChoosePlan = (plan: string, price: string) => {
+    setSelectedPlan(plan);
+    setSelectedPrice(price);
+    setMembershipFlowOpen(true);
+  };
 
   return (
     <section className="py-16 bg-white">
@@ -72,7 +82,12 @@ const PricingSection = () => {
             </CardContent>
             
             <CardFooter className="pt-4">
-              <Button className="w-full bg-white border border-black text-black hover:bg-gray-100">Choose Plan</Button>
+              <Button 
+                className="w-full bg-white border border-black text-black hover:bg-gray-100"
+                onClick={() => handleChoosePlan("Basic Student Plan", billingCycle === "monthly" ? "45" : "405")}
+              >
+                Choose Plan
+              </Button>
             </CardFooter>
           </Card>
           
@@ -114,7 +129,12 @@ const PricingSection = () => {
             </CardContent>
             
             <CardFooter className="pt-4">
-              <Button className="w-full bg-fitness-red text-white hover:bg-red-600">Choose Plan</Button>
+              <Button 
+                className="w-full bg-fitness-red text-white hover:bg-red-600"
+                onClick={() => handleChoosePlan("Advanced Training Plan", billingCycle === "monthly" ? "60" : "540")}
+              >
+                Choose Plan
+              </Button>
             </CardFooter>
           </Card>
           
@@ -153,11 +173,23 @@ const PricingSection = () => {
             </CardContent>
             
             <CardFooter className="pt-4">
-              <Button className="w-full bg-white border border-black text-black hover:bg-gray-100">Choose Plan</Button>
+              <Button 
+                className="w-full bg-white border border-black text-black hover:bg-gray-100"
+                onClick={() => handleChoosePlan("All-Inclusive Plan", billingCycle === "monthly" ? "70" : "630")}
+              >
+                Choose Plan
+              </Button>
             </CardFooter>
           </Card>
         </div>
       </div>
+      
+      <MembershipFlow 
+        isOpen={membershipFlowOpen} 
+        onClose={() => setMembershipFlowOpen(false)}
+        selectedPlan={selectedPlan}
+        price={selectedPrice}
+      />
     </section>
   );
 };
