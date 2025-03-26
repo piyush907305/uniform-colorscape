@@ -1,6 +1,15 @@
 
 import React from 'react';
 import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -23,54 +32,58 @@ const TestimonialsSection = () => {
   return (
     <section className="py-16 bg-fitness-gray">
       <div className="container mx-auto px-6">
-        <h2 className="section-title text-center">Hear From Our Students</h2>
-        <p className="text-center text-fitness-textGray max-w-3xl mx-auto mb-12">
-          Real feedback from our community members who've transformed their fitness journey with Concordia's LeGym facilities and trainers.
-        </p>
-        
-        <div className="relative">
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex gap-2">
-              {Array.from({ length: 4 }).map((_, index) => (
-                <div 
-                  key={index} 
-                  className={`w-2 h-2 rounded-full ${index === 0 ? 'bg-fitness-red' : 'bg-gray-300'}`}
-                />
-              ))}
-            </div>
-            
-            <div className="flex gap-2">
-              <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <ArrowLeft className="w-4 h-4" />
-              </button>
-              <button className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
+        <div className="flex justify-between items-center mb-8">
+          <div>
+            <h2 className="text-3xl font-bold uppercase">Hear From Our Students</h2>
+            <p className="text-fitness-textGray max-w-3xl mt-2">
+              Your feedback helps us improve! Here's what our members have to say about their fitness journey with Le*.
+            </p>
           </div>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map(testimonial => (
-              <div key={testimonial.id} className="testimonial-card">
-                <div className="flex justify-between mb-4">
-                  <div className="flex gap-3">
-                    <img 
-                      src={testimonial.image} 
-                      alt={testimonial.name} 
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-medium">{testimonial.name}</p>
-                      <div className="flex">
-                        {Array.from({ length: testimonial.rating }).map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        ))}
+          <Button variant="outline" className="rounded-md bg-gray-800 text-white border-none hover:bg-gray-700">
+            + Leave a Review
+          </Button>
+        </div>
+        
+        <div className="relative mt-12">          
+          <Carousel className="w-full">
+            <CarouselContent>
+              {testimonials.map(testimonial => (
+                <CarouselItem key={testimonial.id} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="bg-white p-6 rounded-lg">
+                    <div className="flex justify-between mb-4">
+                      <div className="flex gap-3">
+                        <img 
+                          src={testimonial.image} 
+                          alt={testimonial.name} 
+                          className="w-12 h-12 rounded-full object-cover"
+                        />
+                        <div>
+                          <p className="font-medium">{testimonial.name}</p>
+                          <div className="flex">
+                            {Array.from({ length: testimonial.rating }).map((_, i) => (
+                              <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                            ))}
+                          </div>
+                        </div>
                       </div>
                     </div>
+                    <p className="text-fitness-textGray">{testimonial.text}</p>
                   </div>
-                </div>
-                <p className="text-fitness-textGray">{testimonial.text}</p>
-              </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-4 gap-2">
+              <CarouselPrevious className="static h-10 w-10 translate-y-0 rounded-full border border-gray-300" />
+              <CarouselNext className="static h-10 w-10 translate-y-0 rounded-full border border-gray-300" />
+            </div>
+          </Carousel>
+          
+          <div className="flex justify-center mt-4 gap-1">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <div 
+                key={index} 
+                className={`w-2 h-2 rounded-full ${index === 0 ? 'bg-fitness-red' : 'bg-gray-300'}`}
+              />
             ))}
           </div>
         </div>
