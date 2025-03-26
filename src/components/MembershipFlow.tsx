@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { X, ArrowRight } from "lucide-react";
+import { X, ArrowRight, CreditCard, CheckCircle } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 interface MembershipFlowProps {
   isOpen: boolean;
@@ -29,11 +30,18 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
     duration: "",
     startDate: "",
     endDate: "",
-    selectedGoals: [] as string[]
+    selectedGoals: [] as string[],
+    // Payment information
+    cardNumber: "",
+    cardName: "",
+    expiryDate: "",
+    cvv: "",
+    paymentMethod: "credit"
   });
   
   const [selectedEmoji, setSelectedEmoji] = useState<number | null>(null);
   const [feedback, setFeedback] = useState("");
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
   const { toast } = useToast();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +70,7 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
   };
 
   const handleNext = () => {
-    if (step < 3) {
+    if (step < 4) {
       setStep(step + 1);
     } else {
       // Handle form submission here
@@ -86,9 +94,24 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
         duration: "",
         startDate: "",
         endDate: "",
-        selectedGoals: []
+        selectedGoals: [],
+        cardNumber: "",
+        cardName: "",
+        expiryDate: "",
+        cvv: "",
+        paymentMethod: "credit"
       });
     }
+  };
+  
+  const handleProcessPayment = () => {
+    setIsProcessingPayment(true);
+    
+    // Simulate payment processing
+    setTimeout(() => {
+      setIsProcessingPayment(false);
+      handleNext(); // Move to success screen
+    }, 1500);
   };
 
   const handleSubmitFeedback = () => {
@@ -113,6 +136,10 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
           <div className={`w-16 h-0.5 ${step >= 3 ? 'bg-black' : 'bg-gray-200'}`}></div>
           <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 3 ? 'bg-black text-white' : 'bg-gray-200'}`}>
             <span>3</span>
+          </div>
+          <div className={`w-16 h-0.5 ${step >= 4 ? 'bg-black' : 'bg-gray-200'}`}></div>
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= 4 ? 'bg-black text-white' : 'bg-gray-200'}`}>
+            <span>4</span>
           </div>
         </div>
       </div>
@@ -362,16 +389,133 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
 
   const renderStep3 = () => {
     return (
+      <>
+        <h2 className="text-xl font-bold mb-4">Payment Details</h2>
+        <div className="space-y-4">
+          <RadioGroup 
+            defaultValue={formData.paymentMethod}
+            onValueChange={(value) => setFormData({...formData, paymentMethod: value})}
+            className="flex space-x-4 mb-4"
+          >
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="credit" id="credit" />
+              <Label htmlFor="credit" className="flex items-center space-x-1">
+                <span>Credit/Debit Card</span>
+                <CreditCard className="h-4 w-4" />
+              </Label>
+            </div>
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="paypal" id="paypal" />
+              <Label htmlFor="paypal">PayPal</Label>
+            </div>
+          </RadioGroup>
+          
+          <div className="space-y-2">
+            <Label htmlFor="cardName">Cardholder Name</Label>
+            <Input
+              id="cardName"
+              name="cardName"
+              placeholder="Full name on card"
+              value={formData.cardName}
+              onChange={handleInputChange}
+              className="bg-gray-100"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="cardNumber">Card Number</Label>
+            <Input
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="1234 5678 9012 3456"
+              value={formData.cardNumber}
+              onChange={handleInputChange}
+              className="bg-gray-100"
+            />
+          </div>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div className="space-y-2">
+              <Label htmlFor="expiryDate">Expiry Date</Label>
+              <Input
+                id="expiryDate"
+                name="expiryDate"
+                placeholder="MM/YY"
+                value={formData.expiryDate}
+                onChange={handleInputChange}
+                className="bg-gray-100"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="cvv">CVV</Label>
+              <Input
+                id="cvv"
+                name="cvv"
+                placeholder="123"
+                value={formData.cvv}
+                onChange={handleInputChange}
+                className="bg-gray-100"
+                type="password"
+                maxLength={3}
+              />
+            </div>
+          </div>
+          
+          <div className="pt-4 border-t border-gray-200 mt-4">
+            <div className="flex justify-between mb-2">
+              <span className="text-gray-500">Plan Price</span>
+              <span>${price}</span>
+            </div>
+            <div className="flex justify-between mb-2">
+              <span className="text-gray-500">Taxes</span>
+              <span>${(parseFloat(price || "0") * 0.05).toFixed(2)}</span>
+            </div>
+            <div className="flex justify-between font-bold border-t border-gray-200 pt-2">
+              <span>Total</span>
+              <span>${(parseFloat(price || "0") * 1.05).toFixed(2)}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-6 flex justify-end">
+          <Button 
+            onClick={handleProcessPayment}
+            className="bg-black text-white px-6"
+            disabled={isProcessingPayment}
+          >
+            {isProcessingPayment ? "Processing..." : "Make Payment"} <ArrowRight className="ml-2 h-4 w-4" />
+          </Button>
+        </div>
+      </>
+    );
+  };
+
+  const renderStep4 = () => {
+    return (
       <div className="flex flex-col items-center justify-center py-10">
-        <div className="w-16 h-16 bg-black rounded-full flex items-center justify-center text-white text-2xl mb-6">
-          ✓
+        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center text-white text-2xl mb-6">
+          <CheckCircle className="h-8 w-8" />
         </div>
         <h2 className="text-3xl font-bold mb-4">Thank you !!</h2>
         <p className="text-gray-500 text-center mb-6">
-          Your membership has been successfully activated. Get ready to embark on your fitness journey!
+          Your payment has been successful and your membership has been activated. Get ready to embark on your fitness journey!
         </p>
+        <div className="bg-gray-50 w-full p-4 rounded-lg mb-6">
+          <div className="flex justify-between mb-2">
+            <span className="text-gray-500">Order ID:</span>
+            <span className="font-medium">{`ORD-${Math.floor(Math.random() * 1000000)}`}</span>
+          </div>
+          <div className="flex justify-between mb-2">
+            <span className="text-gray-500">Plan:</span>
+            <span className="font-medium">{formData.plan}</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="text-gray-500">Amount paid:</span>
+            <span className="font-medium">${(parseFloat(price || "0") * 1.05).toFixed(2)}</span>
+          </div>
+        </div>
         <Button 
-          onClick={() => setStep(4)}
+          onClick={() => setStep(5)}
           className="w-full bg-black text-white mt-4"
         >
           Give Feedback
@@ -426,10 +570,13 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-md">
+        <DialogTitle className="sr-only">Membership Flow</DialogTitle>
+        <DialogDescription className="sr-only">Complete your membership registration</DialogDescription>
+        
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
-              {step === 3 ? "✓" : "🏋️"}
+              {step === 4 ? "✓" : "🏋️"}
             </div>
             <span className="font-bold">Join us Now!!</span>
           </div>
@@ -441,12 +588,13 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
           </button>
         </div>
         
-        {step !== 3 && step !== 4 && renderStepIndicator()}
+        {step !== 4 && step !== 5 && renderStepIndicator()}
         
         {step === 1 && renderStep1()}
         {step === 2 && renderStep2()}
         {step === 3 && renderStep3()}
-        {step === 4 && renderFeedback()}
+        {step === 4 && renderStep4()}
+        {step === 5 && renderFeedback()}
       </DialogContent>
     </Dialog>
   );
