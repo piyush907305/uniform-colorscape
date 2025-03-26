@@ -7,37 +7,40 @@ const Hero = () => {
     <section className="relative h-screen bg-fitness-dark overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img 
-          src="/lovable-uploads/fe065ebb-3212-49eb-80e0-fb878be22731.png" 
+          src="/lovable-uploads/7b4eb1b0-1dee-487a-a181-f985ce7f5654.png" 
           alt="Woman exercising in gym" 
-          className="w-full h-full object-cover opacity-70"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-fitness-dark/90 to-fitness-dark/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-fitness-dark/70 to-transparent"></div>
       </div>
       
       <div className="absolute inset-0 z-10 flex items-center">
         <div className="container mx-auto px-6">
-          <div className="max-w-xl animate-fade-in">
+          <div className="max-w-xl">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
-              Your Fitness Journey at <span className="text-fitness-red">CONCORDIA</span> Starts Here!
+              Your Fitness Journey at<br /> 
+              <span className="text-white">CONCORDIA</span> Starts<br />
+              Here!
             </h1>
-            <Button className="primary-button">Start</Button>
             
-            <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-white">
+            <Button className="bg-white text-fitness-dark hover:bg-white hover:text-fitness-red transition-colors mt-4">Sign Up</Button>
+            
+            <div className="mt-16 grid grid-cols-4 gap-4">
+              <div className="text-center">
                 <p className="stat-number text-white">500+</p>
-                <p className="stat-label text-gray-300">Members Joined This Month</p>
+                <p className="text-xs text-white">Students Joined Weekly</p>
               </div>
-              <div className="text-white">
+              <div className="text-center">
                 <p className="stat-number text-white">10+</p>
-                <p className="stat-label text-gray-300">Certified Trainers</p>
+                <p className="text-xs text-white">Certified Trainers</p>
               </div>
-              <div className="text-white">
-                <p className="stat-number text-white">76%+</p>
-                <p className="stat-label text-gray-300">Success Rate</p>
+              <div className="text-center">
+                <p className="stat-number text-white">786+</p>
+                <p className="text-xs text-white">Happy Members</p>
               </div>
-              <div className="text-white">
+              <div className="text-center">
                 <p className="stat-number text-white">95%</p>
-                <p className="stat-label text-gray-300">Student Satisfaction</p>
+                <p className="text-xs text-white">Student Satisfaction</p>
               </div>
             </div>
           </div>
