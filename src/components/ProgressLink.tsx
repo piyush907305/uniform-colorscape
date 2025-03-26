@@ -1,9 +1,19 @@
 
 import { Link } from 'react-router-dom';
 
-const ProgressLink = ({ children, className = "" }: { children?: React.ReactNode, className?: string }) => {
+interface ProgressLinkProps {
+  children?: React.ReactNode;
+  className?: string;
+  to?: string;
+}
+
+const ProgressLink = ({ 
+  children, 
+  className = "", 
+  to = "/progress-tracker" 
+}: ProgressLinkProps) => {
   return (
-    <Link to="/progress-tracker" className={`text-gray-300 text-sm hover:text-white transition-colors ${className}`}>
+    <Link to={to} className={`text-gray-300 text-sm hover:text-white transition-colors ${className}`}>
       {children || "Track your progress"}
     </Link>
   );
