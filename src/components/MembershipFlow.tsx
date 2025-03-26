@@ -251,6 +251,7 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
               name="month" 
               className="bg-gray-100"
               readOnly
+              value={`${formData.duration || '0'} Month${formData.duration === '1' ? '' : 's'}`}
             />
           </div>
           
@@ -274,18 +275,21 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
             />
           </div>
           
-          <div className="grid grid-cols-3 gap-2">
-            {['Goal 1', 'Goal 2', 'Goal 3', 'Goal 4', 'Goal 5', 'Goal 6', 'Goal 7', 'Goal 8', 'Goal 9'].map((goal) => (
-              <Button
-                key={goal}
-                type="button"
-                variant={formData.selectedGoals.includes(goal) ? "default" : "outline"}
-                className={`${formData.selectedGoals.includes(goal) ? 'bg-gray-700 text-white' : 'bg-white border-gray-300'}`}
-                onClick={() => toggleGoal(goal)}
-              >
-                {goal}
-              </Button>
-            ))}
+          <div>
+            <div className="text-sm font-medium mb-2">Select your fitness goals</div>
+            <div className="grid grid-cols-3 gap-2">
+              {['Weight Loss', 'Muscle Gain', 'Flexibility', 'Endurance', 'Strength', 'Better Health', 'Toning', 'Rehabilitation', 'Sport Training'].map((goal) => (
+                <Button
+                  key={goal}
+                  type="button"
+                  variant={formData.selectedGoals.includes(goal) ? "default" : "outline"}
+                  className={`${formData.selectedGoals.includes(goal) ? 'bg-gray-700 text-white' : 'bg-white border-gray-300'} text-xs py-1 px-2 h-auto`}
+                  onClick={() => toggleGoal(goal)}
+                >
+                  {goal}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -303,11 +307,14 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
     return (
       <div className="flex flex-col items-center justify-center py-10">
         <h2 className="text-3xl font-bold mb-4">Thank you !!</h2>
+        <p className="text-gray-500 text-center mb-6">
+          Your membership has been successfully activated. Get ready to embark on your fitness journey!
+        </p>
         <Button 
           onClick={() => setStep(4)}
           className="w-full bg-black text-white mt-4"
         >
-          Back To Home
+          Give Feedback
         </Button>
       </div>
     );
@@ -327,8 +334,7 @@ const MembershipFlow = ({ isOpen, onClose, selectedPlan, price }: MembershipFlow
             "public/lovable-uploads/0d2dfd0f-89de-4d17-a0b3-3d94e267e1f7.png", // 😪
             "public/lovable-uploads/fad4b91b-f158-4bf1-879d-e3a4e35c4d73.png", // 😐
             "public/lovable-uploads/821e6aa2-1f1e-487d-8a19-b394d5c300b3.png", // 🙂
-            // Fifth emoji is missing in the upload, I'll use a placeholder
-            "/lovable-uploads/444b88be-2a89-4ca5-9a31-da443bde957a.png", // 😍
+            "public/lovable-uploads/9bbe48cc-b71d-4f12-baba-3ead205ec5fe.png", // 😍
           ].map((emoji, index) => (
             <div 
               key={index} 
