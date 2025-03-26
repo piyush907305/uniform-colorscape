@@ -1,7 +1,8 @@
+
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import { ChartContainer, ChartTooltip, ChartTooltipContent, ChartConfig } from "@/components/ui/chart";
 import { Activity, Dumbbell, Droplets, Flame, Heart, Timer, Trophy } from "lucide-react";
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, ResponsiveContainer, BarChart, Bar } from 'recharts';
 
@@ -24,6 +25,13 @@ const heartRateData = [
   { name: '6', value: 120 },
   { name: '7', value: 110 },
 ];
+
+// Define chart configuration
+const chartConfig: ChartConfig = {
+  value: {
+    label: "Activity"
+  }
+};
 
 const FitnessTracker = () => {
   return (
@@ -159,7 +167,7 @@ const FitnessTracker = () => {
                 </div>
                 <div className="h-48">
                   <ResponsiveContainer width="100%" height="100%">
-                    <ChartContainer>
+                    <ChartContainer config={chartConfig}>
                       <BarChart data={activityData} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
                         <CartesianGrid vertical={false} strokeDasharray="3 3" />
                         <XAxis dataKey="name" axisLine={false} tickLine={false} />
